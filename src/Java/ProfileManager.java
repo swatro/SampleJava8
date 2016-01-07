@@ -1,9 +1,6 @@
 package Java;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class ProfileManager {
     private List<Profile> profiles;
@@ -43,5 +40,22 @@ public class ProfileManager {
         }
 
         return true;
+    }
+
+    public Map<Integer, List<Profile>> getAgesToProfiles() {
+        Map<Integer, List<Profile>> map = new HashMap<>();
+        for (Profile profile : profiles){
+            int age = profile.getAge();
+            if (map.containsKey(age)) {
+                map.get(age).add(profile);
+            }
+            else {
+                List<Profile> ageCommonProfiles = new ArrayList<>();
+                ageCommonProfiles.add(profile);
+                map.put(age, ageCommonProfiles);
+            }
+        }
+
+        return map;
     }
 }

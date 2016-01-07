@@ -11,14 +11,14 @@ public class ProfileTest {
 
     @Test
     public void shouldNotHaveAFavoriteFlavorOfIceCreamWithOptional() throws Exception {
-        Profile profile = new Profile("Stacey", "Awesome", Optional.empty());
+        Profile profile = new Profile("Stacey", "Awesome", Optional.empty(), 20);
 
         assertThat(profile.printFavoriteFlavor(), is("I do not have a favorite ice cream flavor."));
     }
 
     @Test
     public void shouldHaveAFavoriteIceCreamFlavorWithOptional() throws Exception {
-        Profile profile = new Profile("Stacey", "Awesome", Optional.of("Chunky Chocolate Pudding"));
+        Profile profile = new Profile("Stacey", "Awesome", Optional.of("Chunky Chocolate Pudding"), 20);
 
         assertThat(profile.printFavoriteFlavor(), is("Chunky Chocolate Pudding"));
     }
