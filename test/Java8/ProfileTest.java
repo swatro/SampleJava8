@@ -20,13 +20,9 @@ public class ProfileTest {
 
     @Test
     public void shouldHaveAFavoriteIceCreamFlavorWithOptional() throws Exception {
-        List<String> flavors = new ArrayList<>();
-        flavors.add("Chocolate");
-        flavors.add("Vanilla");
-        Optional<List<String>> favoriteIceCreamFlavor = Optional.of(flavors);
-        Profile profile = new Profile("Stacey", "Awesome", favoriteIceCreamFlavor);
+        Profile profile = new Profile("Stacey", "Awesome", Optional.of("Chunky Chocolate Pudding"));
 
-        assertThat(profile.printFavoriteFlavor(), is("Chocolate Vanilla"));
+        assertThat(profile.printFavoriteFlavor(), is("Chunky Chocolate Pudding"));
     }
 
 }
