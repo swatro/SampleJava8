@@ -22,6 +22,10 @@ public class Profile {
         }
         return "I do not have a favorite ice cream flavor.";
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
 }
 
 

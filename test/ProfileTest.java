@@ -44,5 +44,4 @@ public class ProfileTest {
         assertThat(profile.printFavoriteFlavor(), is("Chocolate Vanilla"));
     }
 
-
 }

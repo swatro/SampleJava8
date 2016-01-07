@@ -20,4 +20,7 @@ public class ProfileWithOptional {
         return favoriteIceCreamFlavors.get().stream().collect(Collectors.joining(" "));
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
 }
