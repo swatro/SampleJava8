@@ -25,4 +25,8 @@ public class Profile {
     public String getLastName() {
         return lastName;
     }
+
+    public Optional<String> getFavoriteIceCreamFlavors() {
+        return favoriteIceCreamFlavors;
+    }
 }

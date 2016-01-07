@@ -26,6 +26,10 @@ public class Profile {
     public String getLastName() {
         return lastName;
     }
+
+    public String getFavoriteIceCreamFlavor() {
+        return favoriteIceCreamFlavor;
+    }
 }
 
 

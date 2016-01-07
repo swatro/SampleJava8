@@ -38,4 +38,28 @@ public class ProfileManagerTest {
         assertThat(sortedProfiles.get(1).getLastName(), is("Awesome"));
         assertThat(sortedProfiles.get(2).getLastName(), is("John"));
     }
+
+    @Test
+    public void shouldFindThatThereAreProfilesWithoutFavoriteFlavors() throws Exception {
+        List<Profile> profiles = new ArrayList<>();
+        profiles.add(new Profile("Stacey", "Awesome", null));
+        profiles.add(new Profile("John", "Apple", "Coconut"));
+        profiles.add(new Profile("Stacey", "John", null));
+
+        ProfileManager profileManager = new ProfileManager(profiles);
+
+        assertThat(profileManager.doAllProfilesHaveFavoriteFlavors(), is(false));
+    }
+
+    @Test
+    public void shouldFindThatThereAreNoProfilesWithoutFavoriteFlavors() throws Exception {
+        List<Profile> profiles = new ArrayList<>();
+        profiles.add(new Profile("Stacey", "Awesome", "Chocolate"));
+        profiles.add(new Profile("John", "Apple", "Coconut"));
+        profiles.add(new Profile("Stacey", "John", "Vanilla"));
+
+        ProfileManager profileManager = new ProfileManager(profiles);
+
+        assertThat(profileManager.doAllProfilesHaveFavoriteFlavors(), is(true));
+    }
 }

@@ -34,4 +34,14 @@ public class ProfileManager {
 
         return sortProfiles;
     }
+
+    public boolean doAllProfilesHaveFavoriteFlavors() {
+        for(Profile profile : profiles){
+            if (profile.getFavoriteIceCreamFlavor() == null){
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

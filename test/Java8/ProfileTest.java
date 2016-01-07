@@ -2,8 +2,6 @@ package Java8;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.core.Is.is;
