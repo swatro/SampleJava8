@@ -1,14 +1,16 @@
+package Java8;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class ProfileWithOptional {
+public class Profile {
 
     private String firstName;
     private String lastName;
     private Optional<List<String>> favoriteIceCreamFlavors;
 
-    public ProfileWithOptional(String firstName, String lastName, Optional<List<String>> favoriteIceCreamFlavor) {
+    public Profile(String firstName, String lastName, Optional<List<String>> favoriteIceCreamFlavor) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.favoriteIceCreamFlavors = favoriteIceCreamFlavor;
