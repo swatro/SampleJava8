@@ -8,13 +8,10 @@ import java.util.List;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-/**
- * Created by swatro on 1/6/16.
- */
 public class ProfileManagerTest {
 
     @Test
-    public void shouldFindAllProfilesWithFirstNamesJohnWithJava8() throws Exception {
+    public void shouldFindAllProfilesWithFirstNamesJohn() throws Exception {
         Profile johnProfile = new Profile("John", "Awesome", null);
 
         List<Profile> profiles = new ArrayList<>();
@@ -24,5 +21,21 @@ public class ProfileManagerTest {
 
         ProfileManager profileManager = new ProfileManager(profiles);
         assertThat(profileManager.getAllJohns().get(0), is(johnProfile));
+    }
+
+    @Test
+    public void shouldSortProfilesByLastNames() throws Exception {
+
+        List<Profile> profiles = new ArrayList<>();
+        profiles.add(new Profile("Stacey", "Awesome", null));
+        profiles.add(new Profile("John", "Apple", null));
+        profiles.add(new Profile("Stacey", "John", null));
+
+        ProfileManager profileManager = new ProfileManager(profiles);
+        List<Profile> sortedProfiles = profileManager.sortByLastName();
+
+        assertThat(sortedProfiles.get(0).getLastName(), is("Apple"));
+        assertThat(sortedProfiles.get(1).getLastName(), is("Awesome"));
+        assertThat(sortedProfiles.get(2).getLastName(), is("John"));
     }
 }
