@@ -1,4 +1,4 @@
-package Java8;
+package Java8Solutions;
 
 import org.junit.Test;
 
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static java.util.Optional.empty;
+import static java.util.Optional.*;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -27,7 +27,7 @@ public class ProfileManagerTest {
     }
 
     @Test
-    public void shouldSortProfilesByLastNames() throws Exception {
+    public void shouldSortProfilesByLastName() throws Exception {
 
         List<Profile> profiles = new ArrayList<>();
         profiles.add(new Profile("Stacey", "Awesome", empty(), 20));

@@ -2,49 +2,29 @@ package Java8;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.summingInt;
-import static java.util.stream.Collectors.toList;
 
 public class ProfileManager {
-    private List<Profile> profiles;
-
     public ProfileManager(List<Profile> profiles) {
-        this.profiles = profiles;
+
     }
 
     public List<Profile> getAllJohns() {
-        return profiles
-                .stream()
-                .filter(profileWithOptional -> profileWithOptional.getFirstName().equals("John"))
-                .collect(Collectors.<Profile>toList());
+        return null;
     }
 
     public List<Profile> sortByLastName() {
-        return profiles
-                .stream()
-                .sorted((p1, p2) -> p1.getLastName().compareToIgnoreCase(p2.getLastName()))
-                .collect(toList());
+        return null;
     }
 
     public boolean doAllProfilesHaveFavoriteFlavors() {
-        return profiles
-                .stream()
-                .allMatch(profile -> profile.getFavoriteIceCreamFlavors().isPresent());
+        return false;
     }
 
     public Map<Integer, List<Profile>> getAgesToProfiles() {
-        return profiles
-                .stream()
-                .collect(groupingBy(Profile::getAge));
+        return null;
     }
 
     public int getTotalAges() {
-        return profiles
-                .stream()
-                .map(Profile::getAge)
-                .collect(summingInt(Integer::intValue));
+        return 0;
     }
 }

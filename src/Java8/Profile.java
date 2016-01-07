@@ -3,33 +3,33 @@ package Java8;
 import java.util.Optional;
 
 public class Profile {
-
     private String firstName;
     private String lastName;
-    private Optional<String> favoriteIceCreamFlavors;
-    private int age;
+    private final Optional<Object> favoriteIceCreamFlavor;
+    private final int age;
 
-    public Profile(String firstName, String lastName, Optional<String> favoriteIceCreamFlavor, int age) {
+    public Profile(String firstName, String LastName, Optional<Object> favoriteIceCreamFlavor, int age) {
+
         this.firstName = firstName;
-        this.lastName = lastName;
-        this.favoriteIceCreamFlavors = favoriteIceCreamFlavor;
+        lastName = LastName;
+        this.favoriteIceCreamFlavor = favoriteIceCreamFlavor;
         this.age = age;
     }
 
     public String printFavoriteFlavor() {
-        return favoriteIceCreamFlavors.orElseGet(() -> "I do not have a favorite ice cream flavor.");
+        return null;
+    }
+
+    public String getLastName() {
+        return null;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public Optional<String> getFavoriteIceCreamFlavors() {
-        return favoriteIceCreamFlavors;
+    public Optional<Object> getFavoriteIceCreamFlavor() {
+        return favoriteIceCreamFlavor;
     }
 
     public int getAge() {
