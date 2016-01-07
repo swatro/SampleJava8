@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.summingInt;
 import static java.util.stream.Collectors.toList;
 
 public class ProfileManager {
@@ -38,5 +39,12 @@ public class ProfileManager {
         return profiles
                 .stream()
                 .collect(groupingBy(Profile::getAge));
+    }
+
+    public int getTotalAges() {
+        return profiles
+                .stream()
+                .map(Profile::getAge)
+                .collect(summingInt(Integer::intValue));
     }
 }

@@ -58,4 +58,12 @@ public class ProfileManager {
 
         return map;
     }
+
+    public int getTotalAges() {
+        int total = 0;
+        for (Profile profile : profiles){
+            total += profile.getAge();
+        }
+        return total;
+    }
 }

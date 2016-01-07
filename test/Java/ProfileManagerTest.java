@@ -80,4 +80,17 @@ public class ProfileManagerTest {
         assertThat(profileManager.getAgesToProfiles().get(15).get(1), is(staceyJohn));
         assertThat(profileManager.getAgesToProfiles().get(20).get(0), is(john));
     }
+
+    @Test
+    public void shouldFindTheSumOfEveyonesAgesIs50() throws Exception {
+
+        List<Profile> profiles = new ArrayList<>();
+        profiles.add(new Profile("Stacey", "Awesome", "Chocolate", 15));
+        profiles.add(new Profile("John", "Apple", "Coconut", 20));
+        profiles.add(new Profile("Stacey", "John", "Vanilla", 15));
+
+        ProfileManager profileManager = new ProfileManager(profiles);
+
+        assertThat(profileManager.getTotalAges(), is(50));
+    }
 }
