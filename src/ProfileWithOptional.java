@@ -1,19 +1,23 @@
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class ProfileWithOptional {
 
     private String firstName;
     private String lastName;
-    private Optional<String> favoriteIceCreamFlavor;
+    private Optional<List<String>> favoriteIceCreamFlavors;
 
-    public ProfileWithOptional(String firstName, String lastName, Optional<String> favoriteIceCreamFlavor) {
+    public ProfileWithOptional(String firstName, String lastName, Optional<List<String>> favoriteIceCreamFlavor) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.favoriteIceCreamFlavor = favoriteIceCreamFlavor;
+        this.favoriteIceCreamFlavors = favoriteIceCreamFlavor;
     }
 
     public String printFavoriteFlavor() {
-        return favoriteIceCreamFlavor.orElse("I do not have a favorite ice cream flavor.");
+        if (!favoriteIceCreamFlavors.isPresent()) return "I do not have a favorite ice cream flavor.";
+
+        return favoriteIceCreamFlavors.get().stream().collect(Collectors.joining(" "));
     }
 
 }

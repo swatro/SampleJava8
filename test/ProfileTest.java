@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.core.Is.is;
@@ -11,14 +13,17 @@ public class ProfileTest {
     public void shouldNotHaveAFavoriteFlavorOfIceCream() throws Exception {
         Profile profile = new Profile("Stacey", "Awesome", null);
 
-        assertThat(profile.printFavoriteFlavor(), is("I do not have a favorite ice cream flavor."));
+        assertThat(profile.printAllFavoriteIceCreamFlavors(), is("I do not have a favorite ice cream flavor."));
     }
 
     @Test
-    public void shouldHaveAFavoriteIceCreamFlavor() throws Exception {
-        Profile profile = new Profile("Stacey", "Awesome", "Chunky Chocolate Pudding");
+    public void shouldHaveAListOfFavoriteIceCreamFlavors() throws Exception {
+        List<String> flavors = new ArrayList();
+        flavors.add("Chocolate");
+        flavors.add("Vanilla");
+        Profile profile = new Profile("Stacey", "Awesome", flavors);
 
-        assertThat(profile.printFavoriteFlavor(), is("Chunky Chocolate Pudding"));
+        assertThat(profile.printAllFavoriteIceCreamFlavors(), is("Chocolate Vanilla"));
     }
 
     @Test
@@ -30,9 +35,13 @@ public class ProfileTest {
 
     @Test
     public void shouldHaveAFavoriteIceCreamFlavorWithOptional() throws Exception {
-        ProfileWithOptional profile = new ProfileWithOptional("Stacey", "Awesome", Optional.of("Chunky Chocolate Pudding"));
+        List<String> flavors = new ArrayList<>();
+        flavors.add("Chocolate");
+        flavors.add("Vanilla");
+        Optional<List<String>> favoriteIceCreamFlavor = Optional.of(flavors);
+        ProfileWithOptional profile = new ProfileWithOptional("Stacey", "Awesome", favoriteIceCreamFlavor);
 
-        assertThat(profile.printFavoriteFlavor(), is("Chunky Chocolate Pudding"));
+        assertThat(profile.printFavoriteFlavor(), is("Chocolate Vanilla"));
     }
 
 

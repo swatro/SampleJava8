@@ -1,18 +1,24 @@
+import java.util.List;
+
 public class Profile {
 
     private String firstName;
     private String lastName;
-    private String favoriteIceCreamFlavor;
+    private List<String> favoriteIceCreamFlavor;
 
-    public Profile(String firstName, String lastName, String favoriteIceCreamFlavor) {
+    public Profile(String firstName, String lastName, List<String> favoriteIceCreamFlavor) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.favoriteIceCreamFlavor = favoriteIceCreamFlavor;
     }
 
-    public String printFavoriteFlavor(){
-        if (favoriteIceCreamFlavor !=null){
-            return favoriteIceCreamFlavor;
+    public String printAllFavoriteIceCreamFlavors(){
+        if (favoriteIceCreamFlavor !=null && favoriteIceCreamFlavor.size() > 0){
+            String flavors = "";
+            for (String flavor : favoriteIceCreamFlavor){
+                flavors+= flavor + " ";
+            }
+            return flavors.trim();
         }
         return "I do not have a favorite ice cream flavor.";
     }
