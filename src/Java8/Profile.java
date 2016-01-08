@@ -21,7 +21,7 @@ public class Profile {
     }
 
     public String getLastName() {
-        return null;
+        return lastName;
     }
 
     public String getFirstName() {
